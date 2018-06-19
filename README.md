@@ -7,7 +7,13 @@ antlr4 hive parser - javascript
 `npm i antlr4-hive-javascript antlr4`
 
 ## Use
-> see example
+
+> see [example](https://github.com/Mammut-FE/antlr4-hive-javascript/tree/master/example)
+
+```javascript
+cd example
+node index.js
+```
 
 ## Antlr4
 
