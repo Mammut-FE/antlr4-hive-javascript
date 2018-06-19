@@ -1,0 +1,19 @@
+{
+  "name": "antlr4-hive-javascript",
+  "version": "0.0.1",
+  "description": "antlr4 hive parser",
+  "main": "lib/index.js",
+  "repository": "git@github.com:Mammut-FE/antlr4-hive-javascript.git",
+  "author": "lleohao <lleohao@hotmail.com>",
+  "license": "Apache License 2.0",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "build": "antlr4 -Dlanguage=JavaScript Hplsql.g4 -visitor",
+    "prepublish": "gulp"
+  }
+}
