@@ -4,7 +4,10 @@ antlr4 hive parser - javascript
 
 ## Install
 
-`npm install`
+`npm i antlr4-hive-javascript antlr4`
+
+## Use
+> see example
 
 ## Antlr4
 
