@@ -1,9 +1,9 @@
 {
   "name": "antlr4-hive-javascript",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "antlr4 hive parser",
   "main": "lib/index.js",
-  "types": "./lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": "git@github.com:Mammut-FE/antlr4-hive-javascript.git",
   "author": "lleohao <lleohao@hotmail.com>",
   "license": "Apache License 2.0",
