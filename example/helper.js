@@ -1,12 +1,8 @@
-function getNodeByOffset (offset) {
-
-}
-
 function empty (n) {
     var str = '';
     
     for (var i = 0; i < n; i++) {
-        str += '  ';
+        str += '---';
     }
     
     return str;
@@ -16,17 +12,23 @@ function printTree (tree) {
     console.log('start visit');
     
     function _visit (node, depth) {
-        console.log(empty(depth), node.constructor.name, node.start.start, node.stop.stop);
+        let info = `${empty(depth)} ${node.constructor.name}`;
+        if (node.constructor.name !== 'TerminalNodeImpl') {
+            info += ` ${node.start.start} ${node.stop.stop}`;
+        } else {
+            info += ` ${node.symbol.start} ${node.symbol.stop}`;
+        }
+        console.log(info);
         
         if (node.children) {
             node.children.forEach(function(_node) {
-                if (_node.constructor.name === 'TerminalNodeImpl') return;
+                // if (_node.constructor.name === 'TerminalNodeImpl') return;
                 _visit(_node, depth + 1);
             });
         }
     }
     
-    _visit(tree, 1);
+    _visit(tree, 0);
     
     console.log('end visit');
 }
@@ -57,6 +59,10 @@ function generateTreeData (tree) {
     _visit(tree, rootNode.children);
     
     return [rootNode];
+}
+
+function getNodeByOffset (offset) {
+
 }
 
 module.exports = {
