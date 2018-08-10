@@ -1,6 +1,6 @@
 {
   "name": "antlr4-hive-javascript",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "antlr4 hive parser",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
