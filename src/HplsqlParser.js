@@ -4944,8 +4944,8 @@ HplsqlParser.prototype.expr_stmt = function() {
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 582;
-        if (!( !this._input.LT(1).text.toUpperCase() === "GO")) {
-            throw new antlr4.error.FailedPredicateException(this, "!this._input.LT(1).text.toUpperCase() === \"GO\"");
+        if (!( this._input.LT(1).text.toUpperCase() !== "GO")) {
+            throw new antlr4.error.FailedPredicateException(this, "this._input.LT(1).text.toUpperCase() !== \"GO\"");
         }
         this.state = 583;
         this.expr(0);
@@ -14887,11 +14887,11 @@ HplsqlParser.prototype.create_routine_params = function() {
         case 3:
             this.enterOuterAlt(localctx, 3);
             this.state = 1553;
-            if (!( !this._input.LT(1).text.toUpperCase() === "IS" &&
-                    !this._input.LT(1).text.toUpperCase() === "AS" &&
+            if (!( this._input.LT(1).text.toUpperCase() !== "IS" &&
+                    this._input.LT(1).text.toUpperCase() !== "AS" &&
                     !(this._input.LT(1).text.toUpperCase() ==="DYNAMIC" && this._input.LT(2).text.toUpperCase() === "RESULT")
                     )) {
-                throw new antlr4.error.FailedPredicateException(this, "!this._input.LT(1).text.toUpperCase() === \"IS\" &&\n        !this._input.LT(1).text.toUpperCase() === \"AS\" &&\n        !(this._input.LT(1).text.toUpperCase() ===\"DYNAMIC\" && this._input.LT(2).text.toUpperCase() === \"RESULT\")\n        ");
+                throw new antlr4.error.FailedPredicateException(this, "this._input.LT(1).text.toUpperCase() !== \"IS\" &&\n        this._input.LT(1).text.toUpperCase() !== \"AS\" &&\n        !(this._input.LT(1).text.toUpperCase() ===\"DYNAMIC\" && this._input.LT(2).text.toUpperCase() === \"RESULT\")\n        ");
             }
             this.state = 1554;
             this.create_routine_param_item();
@@ -24115,8 +24115,8 @@ HplsqlParser.prototype.select_list_alias = function() {
         case 1:
             this.enterOuterAlt(localctx, 1);
             this.state = 2316;
-            if (!( !this._input.LT(1).text.toUpperCase() === "INTO" && !this._input.LT(1).text.toUpperCase() === "FROM")) {
-                throw new antlr4.error.FailedPredicateException(this, "!this._input.LT(1).text.toUpperCase() === \"INTO\" && !this._input.LT(1).text.toUpperCase() === \"FROM\"");
+            if (!( this._input.LT(1).text.toUpperCase() !== "INTO" && this._input.LT(1).text.toUpperCase() !== "FROM")) {
+                throw new antlr4.error.FailedPredicateException(this, "this._input.LT(1).text.toUpperCase() !== \"INTO\" && this._input.LT(1).text.toUpperCase() !== \"FROM\"");
             }
             this.state = 2318;
             this._errHandler.sync(this);
@@ -25290,15 +25290,15 @@ HplsqlParser.prototype.from_alias_clause = function() {
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 2414;
-        if (!( !this._input.LT(1).text.toUpperCase() === "EXEC" &&
-                !this._input.LT(1).text.toUpperCase() === "EXECUTE" &&
-                !this._input.LT(1).text.toUpperCase() === "INNER" &&
-                !this._input.LT(1).text.toUpperCase() === "LEFT" &&
-                !this._input.LT(1).text.toUpperCase() === "GROUP" &&
-                !this._input.LT(1).text.toUpperCase() === "ORDER" &&
-                !this._input.LT(1).text.toUpperCase() === "LIMIT" &&
-                !this._input.LT(1).text.toUpperCase() === "WITH")) {
-            throw new antlr4.error.FailedPredicateException(this, "!this._input.LT(1).text.toUpperCase() === \"EXEC\" &&\n        !this._input.LT(1).text.toUpperCase() === \"EXECUTE\" &&\n        !this._input.LT(1).text.toUpperCase() === \"INNER\" &&\n        !this._input.LT(1).text.toUpperCase() === \"LEFT\" &&\n        !this._input.LT(1).text.toUpperCase() === \"GROUP\" &&\n        !this._input.LT(1).text.toUpperCase() === \"ORDER\" &&\n        !this._input.LT(1).text.toUpperCase() === \"LIMIT\" &&\n        !this._input.LT(1).text.toUpperCase() === \"WITH\"");
+        if (!( this._input.LT(1).text.toUpperCase() !== "EXEC" &&
+                this._input.LT(1).text.toUpperCase() !== "EXECUTE" &&
+                this._input.LT(1).text.toUpperCase() !== "INNER" &&
+                this._input.LT(1).text.toUpperCase() !== "LEFT" &&
+                this._input.LT(1).text.toUpperCase() !== "GROUP" &&
+                this._input.LT(1).text.toUpperCase() !== "ORDER" &&
+                this._input.LT(1).text.toUpperCase() !== "LIMIT" &&
+                this._input.LT(1).text.toUpperCase() !== "WITH")) {
+            throw new antlr4.error.FailedPredicateException(this, "this._input.LT(1).text.toUpperCase() !== \"EXEC\" &&\n        this._input.LT(1).text.toUpperCase() !== \"EXECUTE\" &&\n        this._input.LT(1).text.toUpperCase() !== \"INNER\" &&\n        this._input.LT(1).text.toUpperCase() !== \"LEFT\" &&\n        this._input.LT(1).text.toUpperCase() !== \"GROUP\" &&\n        this._input.LT(1).text.toUpperCase() !== \"ORDER\" &&\n        this._input.LT(1).text.toUpperCase() !== \"LIMIT\" &&\n        this._input.LT(1).text.toUpperCase() !== \"WITH\"");
         }
         this.state = 2416;
         this._errHandler.sync(this);
@@ -27960,8 +27960,8 @@ HplsqlParser.prototype.delete_alias = function() {
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 2597;
-        if (!( !this._input.LT(1).text.toUpperCase() === "ALL")) {
-            throw new antlr4.error.FailedPredicateException(this, "!this._input.LT(1).text.toUpperCase() === \"ALL\"");
+        if (!( this._input.LT(1).text.toUpperCase() !== "ALL")) {
+            throw new antlr4.error.FailedPredicateException(this, "this._input.LT(1).text.toUpperCase() !== \"ALL\"");
         }
         this.state = 2599;
         this._errHandler.sync(this);
@@ -33297,8 +33297,8 @@ HplsqlParser.prototype.func_param = function() {
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 3225;
-        if (!( !this._input.LT(1).text.toUpperCase() === "INTO")) {
-            throw new antlr4.error.FailedPredicateException(this, "!this._input.LT(1).text.toUpperCase() === \"INTO\"");
+        if (!( this._input.LT(1).text.toUpperCase() !== "INTO")) {
+            throw new antlr4.error.FailedPredicateException(this, "this._input.LT(1).text.toUpperCase() !== \"INTO\"");
         }
         this.state = 3231;
         this._errHandler.sync(this);
@@ -37441,7 +37441,7 @@ HplsqlParser.prototype.block_end_sempred = function(localctx, predIndex) {
 HplsqlParser.prototype.expr_stmt_sempred = function(localctx, predIndex) {
 	switch(predIndex) {
 		case 1:
-			return !this._input.LT(1).text.toUpperCase() === "GO";
+			return this._input.LT(1).text.toUpperCase() !== "GO";
 		default:
 			throw "No predicate with index:" + predIndex;
 	}
@@ -37450,8 +37450,8 @@ HplsqlParser.prototype.expr_stmt_sempred = function(localctx, predIndex) {
 HplsqlParser.prototype.create_routine_params_sempred = function(localctx, predIndex) {
 	switch(predIndex) {
 		case 2:
-			return !this._input.LT(1).text.toUpperCase() === "IS" &&
-		        !this._input.LT(1).text.toUpperCase() === "AS" &&
+			return this._input.LT(1).text.toUpperCase() !== "IS" &&
+		        this._input.LT(1).text.toUpperCase() !== "AS" &&
 		        !(this._input.LT(1).text.toUpperCase() ==="DYNAMIC" && this._input.LT(2).text.toUpperCase() === "RESULT")
 		        ;
 		default:
@@ -37462,7 +37462,7 @@ HplsqlParser.prototype.create_routine_params_sempred = function(localctx, predIn
 HplsqlParser.prototype.select_list_alias_sempred = function(localctx, predIndex) {
 	switch(predIndex) {
 		case 3:
-			return !this._input.LT(1).text.toUpperCase() === "INTO" && !this._input.LT(1).text.toUpperCase() === "FROM";
+			return this._input.LT(1).text.toUpperCase() !== "INTO" && this._input.LT(1).text.toUpperCase() !== "FROM";
 		default:
 			throw "No predicate with index:" + predIndex;
 	}
@@ -37471,14 +37471,14 @@ HplsqlParser.prototype.select_list_alias_sempred = function(localctx, predIndex)
 HplsqlParser.prototype.from_alias_clause_sempred = function(localctx, predIndex) {
 	switch(predIndex) {
 		case 4:
-			return !this._input.LT(1).text.toUpperCase() === "EXEC" &&
-		        !this._input.LT(1).text.toUpperCase() === "EXECUTE" &&
-		        !this._input.LT(1).text.toUpperCase() === "INNER" &&
-		        !this._input.LT(1).text.toUpperCase() === "LEFT" &&
-		        !this._input.LT(1).text.toUpperCase() === "GROUP" &&
-		        !this._input.LT(1).text.toUpperCase() === "ORDER" &&
-		        !this._input.LT(1).text.toUpperCase() === "LIMIT" &&
-		        !this._input.LT(1).text.toUpperCase() === "WITH";
+			return this._input.LT(1).text.toUpperCase() !== "EXEC" &&
+		        this._input.LT(1).text.toUpperCase() !== "EXECUTE" &&
+		        this._input.LT(1).text.toUpperCase() !== "INNER" &&
+		        this._input.LT(1).text.toUpperCase() !== "LEFT" &&
+		        this._input.LT(1).text.toUpperCase() !== "GROUP" &&
+		        this._input.LT(1).text.toUpperCase() !== "ORDER" &&
+		        this._input.LT(1).text.toUpperCase() !== "LIMIT" &&
+		        this._input.LT(1).text.toUpperCase() !== "WITH";
 		default:
 			throw "No predicate with index:" + predIndex;
 	}
@@ -37487,7 +37487,7 @@ HplsqlParser.prototype.from_alias_clause_sempred = function(localctx, predIndex)
 HplsqlParser.prototype.delete_alias_sempred = function(localctx, predIndex) {
 	switch(predIndex) {
 		case 5:
-			return !this._input.LT(1).text.toUpperCase() === "ALL";
+			return this._input.LT(1).text.toUpperCase() !== "ALL";
 		default:
 			throw "No predicate with index:" + predIndex;
 	}
@@ -37522,7 +37522,7 @@ HplsqlParser.prototype.expr_sempred = function(localctx, predIndex) {
 HplsqlParser.prototype.func_param_sempred = function(localctx, predIndex) {
 	switch(predIndex) {
 		case 12:
-			return !this._input.LT(1).text.toUpperCase() === "INTO";
+			return this._input.LT(1).text.toUpperCase() !== "INTO";
 		default:
 			throw "No predicate with index:" + predIndex;
 	}

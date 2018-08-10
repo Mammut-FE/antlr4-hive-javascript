@@ -2,7 +2,7 @@ const { InputStream, CommonTokenStream } = require("antlr4");
 const { HplsqlLexer, HplsqlParser } = require("../lib");
 const GetSelectInfo = require('./GetSelectInfo');
 
-const str = `select * from user`;
+const str = `select u.name, u.age from user as user;`;
 const chars = new InputStream(str);
 const lexer = new HplsqlLexer(chars);
 const tokens = new CommonTokenStream(lexer);

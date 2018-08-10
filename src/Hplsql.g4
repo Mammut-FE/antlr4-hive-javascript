@@ -126,7 +126,7 @@ null_stmt :             // NULL statement (no operation)
      ;
 
 expr_stmt :             // Standalone expression
-       {!this._input.LT(1).text.toUpperCase() === "GO"}? expr
+       {this._input.LT(1).text.toUpperCase() !== "GO"}? expr
      ;
 
 assignment_stmt :       // Assignment statement
@@ -472,8 +472,8 @@ create_procedure_stmt :
 create_routine_params :
        T_OPEN_P T_CLOSE_P
      | T_OPEN_P create_routine_param_item (T_COMMA create_routine_param_item)* T_CLOSE_P
-     | {!this._input.LT(1).text.toUpperCase() === "IS" &&
-        !this._input.LT(1).text.toUpperCase() === "AS" &&
+     | {this._input.LT(1).text.toUpperCase() !== "IS" &&
+        this._input.LT(1).text.toUpperCase() !== "AS" &&
         !(this._input.LT(1).text.toUpperCase() ==="DYNAMIC" && this._input.LT(2).text.toUpperCase() === "RESULT")
         }?
        create_routine_param_item (T_COMMA create_routine_param_item)*
@@ -812,7 +812,7 @@ select_list_item :
      ;
 
 select_list_alias :
-       {!this._input.LT(1).text.toUpperCase() === "INTO" && !this._input.LT(1).text.toUpperCase() === "FROM"}? T_AS? ident
+       {this._input.LT(1).text.toUpperCase() !== "INTO" && this._input.LT(1).text.toUpperCase() !== "FROM"}? T_AS? ident
      | T_OPEN_P T_TITLE L_S_STRING T_CLOSE_P
      ;
 
@@ -862,14 +862,14 @@ from_table_values_row:
      ;
 
 from_alias_clause :
-       {!this._input.LT(1).text.toUpperCase() === "EXEC" &&
-        !this._input.LT(1).text.toUpperCase() === "EXECUTE" &&
-        !this._input.LT(1).text.toUpperCase() === "INNER" &&
-        !this._input.LT(1).text.toUpperCase() === "LEFT" &&
-        !this._input.LT(1).text.toUpperCase() === "GROUP" &&
-        !this._input.LT(1).text.toUpperCase() === "ORDER" &&
-        !this._input.LT(1).text.toUpperCase() === "LIMIT" &&
-        !this._input.LT(1).text.toUpperCase() === "WITH"}?
+       {this._input.LT(1).text.toUpperCase() !== "EXEC" &&
+        this._input.LT(1).text.toUpperCase() !== "EXECUTE" &&
+        this._input.LT(1).text.toUpperCase() !== "INNER" &&
+        this._input.LT(1).text.toUpperCase() !== "LEFT" &&
+        this._input.LT(1).text.toUpperCase() !== "GROUP" &&
+        this._input.LT(1).text.toUpperCase() !== "ORDER" &&
+        this._input.LT(1).text.toUpperCase() !== "LIMIT" &&
+        this._input.LT(1).text.toUpperCase() !== "WITH"}?
        T_AS? ident (T_OPEN_P L_ID (T_COMMA L_ID)* T_CLOSE_P)?
      ;
 
@@ -946,7 +946,7 @@ delete_stmt :
      ;
 
 delete_alias :
-       {!this._input.LT(1).text.toUpperCase() === "ALL"}?
+       {this._input.LT(1).text.toUpperCase() !== "ALL"}?
        T_AS? ident
      ;
 
@@ -1137,7 +1137,7 @@ expr_func_params :
      ;
 
 func_param :
-       {!this._input.LT(1).text.toUpperCase() === "INTO"}? (ident T_EQUAL T_GREATER?)? expr
+       {this._input.LT(1).text.toUpperCase() !== "INTO"}? (ident T_EQUAL T_GREATER?)? expr
      ;
 
 expr_select :
