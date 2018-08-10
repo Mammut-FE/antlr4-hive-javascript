@@ -1,13 +1,18 @@
-const {HplsqlVisitor} = require('../lib');
+const { HplsqlVisitor } = require('../src/index');
 
 class GetSelectInfo extends HplsqlVisitor {
-    constructor (...args) {
-        super(args);
+    constructor () {
+        super();
     }
     
-    visitFrom_table_clause (ctx) {
-        const tableName = ctx.from_table_name_clause().table_name();
-        console.log(`select target table: "${tableName.getText()}"`);
+    visitSubselect_stmt (ctx) {
+        const fromCtx = ctx.from_clause();
+        
+        const tableClause = fromCtx.from_table_clause();
+        const tableNameClause = tableClause.from_table_name_clause();
+        
+        console.log(tableNameClause.table_name().getText());
+        console.log(tableNameClause.from_alias_clause().ident().getText());
     }
 }
 
