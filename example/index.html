@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+
+        }
+
+        body {
+            font-size: 16px;
+            font-family: "Microsoft Sans Serif", serif;
+            padding: 24px;
+        }
+
+        .wrap {
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+
+        .control label, .output header {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .control textarea {
+            outline: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 480px;
+            height: 400px;
+
+            padding: 8px;
+        }
+
+        .output {
+            margin-top: 32px;
+        }
+
+        .output table {
+            text-align: center;
+            border-color: #ddd;
+            table-layout: fixed;
+        }
+
+        .output table tr {
+            height: 32px;
+            line-height: 32px;
+        }
+
+        .output table td.space {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="control">
+        <label for="text">SQL</label>
+        <textarea id="text"></textarea>
+    </div>
+    <div class="output" id="output">
+        <header>Index</header>
+        <table border="1" cellspacing="0">
+            <thead>
+            <tr id="headTr">
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="bodyTr">
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const textElem = document.getElementById('text');
+    const bodyTrElem = document.getElementById('bodyTr');
+    const headTrElem = document.getElementById('headTr');
+
+    textElem.addEventListener('blur', onBlur);
+
+    function onBlur () {
+        const sql = textElem.value;
+
+        const charList = splitStr(sql);
+        let headTrHtml = [];
+        let bodyTrHtml = [];
+
+        charList.forEach((char, index) => {
+            headTrHtml.push(`<td width="32">${index}</td>`);
+            bodyTrHtml.push(`<td class="${char.startsWith('\\') ? 'space' : ''}"><pre>${char}</pre></td>`);
+        });
+
+        bodyTrElem.innerHTML = bodyTrHtml.join('\n');
+        headTrElem.innerHTML = headTrHtml.join('\n');
+    }
+
+    function splitStr (text) {
+        const result = [];
+
+        for (let i = 0, len = text.length; i < len; i++) {
+            let key = text[i];
+
+            if (key === '\n') {
+                key = '\\n';
+            }
+
+            result.push(key);
+
+        }
+
+        return result;
+    }
+
+    textElem.value = `use db;
+create table table1 (id int, name string);
+select t.name from table as t;
+`;
+    onBlur();
+</script>
+</body>
+</html>
