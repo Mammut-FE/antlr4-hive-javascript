@@ -1,4 +1,4 @@
-const { HplsqlVisitor } = require('../../src/index');
+const { HplsqlVisitor } = require('../../../src');
 
 class GetSelectInfo extends HplsqlVisitor {
     constructor () {

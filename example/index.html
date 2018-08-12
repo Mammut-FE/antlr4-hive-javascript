@@ -47,6 +47,10 @@
             margin-top: 32px;
         }
 
+        .output article {
+            margin-bottom: 24px;
+        }
+
         .output table {
             text-align: center;
             border-color: #ddd;
@@ -56,6 +60,12 @@
         .output table tr {
             height: 32px;
             line-height: 32px;
+            cursor: pointer;
+        }
+
+        .output table tr td:hover {
+            background-color: #31a1ff;
+            color: #fff;
         }
 
         .output table td.space {
@@ -70,19 +80,26 @@
         <textarea id="text"></textarea>
     </div>
     <div class="output" id="output">
-        <header>Index</header>
-        <table border="1" cellspacing="0">
-            <thead>
-            <tr id="headTr">
+       <article>
+           <header>Index</header>
+           <table border="1" cellspacing="0">
+               <thead>
+               <tr id="headTr">
 
-            </tr>
-            </thead>
-            <tbody>
-            <tr id="bodyTr">
+               </tr>
+               </thead>
+               <tbody>
+               <tr id="bodyTr">
 
-            </tr>
-            </tbody>
-        </table>
+               </tr>
+               </tbody>
+           </table>
+       </article>
+
+        <article>
+            <header>token</header>
+            <div id="tokenOutput"></div>
+        </article>
     </div>
 </div>
 </body>

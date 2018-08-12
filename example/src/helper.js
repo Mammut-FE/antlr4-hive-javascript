@@ -1,3 +1,6 @@
+const { TerminalNode } = require('antlr4/tree/Tree');
+const { ParserRuleContext } = require('antlr4');
+
 function empty (n) {
     var str = '';
     
@@ -61,11 +64,81 @@ function generateTreeData (tree) {
     return rootNode;
 }
 
-function getNodeByOffset (tree, offset) {
+function getTokenRange (token) {
+    if (token instanceof TerminalNode) {
+        return {
+            start: token.symbol.start,
+            stop: token.symbol.stop
+        };
+    }
+    
+    if (token instanceof ParserRuleContext) {
+        return {
+            start: token.start.start,
+            stop: token.stop.stop
+        };
+    }
+    
+    return {
+        start: -1,
+        stop: -1
+    };
+}
 
+function offsetIsInRange (offset, range) {
+    offset--;
+    
+    return offset <= range.stop && offset >= range.start;
+}
+
+function getNodeByOffset (tree, offset) {
+    let children = tree.children;
+    let result = [];
+    
+    while (children) {
+        let i = 0;
+        let flag = false;
+        
+        for (; i < children.length; i++) {
+            const token = children[i];
+            const range = getTokenRange(token);
+            
+            if (offsetIsInRange(offset, range)) {
+                result.push(token);
+                children = token.children;
+                flag = tree;
+                break;
+            }
+        }
+        
+        if (!flag && i === children.length) {
+            children = null;
+        }
+    }
+    
+    console.log(result);
+}
+
+function splitStr (text) {
+    const result = [];
+    
+    for (let i = 0, len = text.length; i < len; i++) {
+        let key = text[i];
+        
+        if (key === '\n') {
+            key = '\\n';
+        }
+        
+        result.push(key);
+        
+    }
+    
+    return result;
 }
 
 module.exports = {
     generateTreeData,
-    printTree
+    printTree,
+    splitStr,
+    getNodeByOffset
 };
