@@ -16,7 +16,7 @@ function printTree (tree) {
         if (node.constructor.name !== 'TerminalNodeImpl') {
             info += ` ${node.start.start} ${node.stop.stop}`;
         } else {
-            info += ` ${node.symbol.start} ${node.symbol.stop}`;
+            info += ` ${node.symbol.start} ${node.symbol.stop} ${node.getText()}`;
         }
         console.log(info);
         
@@ -58,10 +58,10 @@ function generateTreeData (tree) {
     
     _visit(tree, rootNode.children);
     
-    return [rootNode];
+    return rootNode;
 }
 
-function getNodeByOffset (offset) {
+function getNodeByOffset (tree, offset) {
 
 }
 

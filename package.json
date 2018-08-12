@@ -11,11 +11,17 @@
     "lib"
   ],
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "file-loader": "^1.1.11",
+    "gulp": "^3.9.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   },
   "scripts": {
     "build": "./build.sh",
-    "prepublish": "gulp"
+    "prepublish": "gulp",
+    "start": "webpack-dev-server --config ./example/webpack.config.js"
   },
   "dependencies": {
     "antlr4": "^4.7.1"
