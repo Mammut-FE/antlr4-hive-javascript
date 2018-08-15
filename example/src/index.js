@@ -5,7 +5,7 @@ const Parser = require('./parser/parser');
 // create table table1 (id int, name string);
 // select t.name from table as t;
 // `;
-const str = `use db; select * from `;
+const str = ` select * from `;
 const parser = new Parser();
 
 parser.setSource(str);
@@ -42,10 +42,9 @@ function bindHoverEvent () {
 }
 
 function onHover (e) {
-    const tokenStake = parser.getTokenByOffset(e.target.cellIndex + 1);
-    const token = tokenStake.pop();
+    const node = parser.getTokenByOffset(e.target.cellIndex + 1);
     
-    console.log(token);
+    console.log(node);
 }
 
 textElem.addEventListener('blur', onBlur);
