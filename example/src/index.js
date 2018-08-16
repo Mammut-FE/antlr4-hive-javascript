@@ -37,11 +37,11 @@ function onBlur () {
 
 function bindHoverEvent () {
     Array.from(headTrElem.children).forEach(elem => {
-        elem.addEventListener('click', onHover);
+        elem.addEventListener('click', onClick);
     });
 }
 
-function onHover (e) {
+function onClick (e) {
     const node = parser.getTokenByOffset(e.target.cellIndex + 1);
     
     console.log(node);

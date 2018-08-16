@@ -1,10 +1,7 @@
 const TerminalNode = require('antlr4/tree/Tree').TerminalNode;
 
 const { ruleType } = require('./emuns');
-const { getRightmostNode, getBetweenNode } = require('./utils');
-
-
-const EOF = '<EOF>';
+const { getRightmostNode, getBetweenNode, getTokenRange } = require('./utils');
 
 class Node {
     
@@ -48,36 +45,45 @@ class Node {
     
     get text () {
         const ctx = this.context;
-        if (ctx instanceof TerminalNode) {
-            return ctx.getText();
-        } else {
-            return '';
+        if (this._text === undefined) {
+            if (ctx instanceof TerminalNode) {
+                this._text =  ctx.getText();
+            } else {
+                this._text =  '';
+            }
         }
+        
+        return this._text;
     }
     
     get contextType () {
         let ctx = this.context;
         
-        if (ctx instanceof TerminalNode) {
-            ctx = ctx.parentCtx;
+        if (!this._contentType) {
+            if (ctx instanceof TerminalNode) {
+                ctx = ctx.parentCtx;
+            }
+    
+            while (ctx.ruleIndex > 183) {
+                ctx = ctx.parentCtx;
+            }
+    
+            this._contentType = ctx.ruleIndex;
         }
         
-        while (ctx.ruleIndex > 183) {
-            ctx = ctx.parentCtx;
-        }
-        
-        return ruleType[ctx.ruleIndex];
+        return this._contentType;
     }
     
     
     _getLeftToken () {
         const ctx = this.context;
+        const range = getTokenRange(ctx);
         
-        if (this.offset < ctx.start.start) { // 开头的空白节点
+        if (this.offset <= range.start) { // 开头的空白节点
             return {
                 type: -1
             };
-        } else if (this.offset > ctx.stop.stop) { // 结尾的空白节点
+        } else if (this.offset > range.stop) { // 结尾的空白节点
             const { symbol } = getRightmostNode(ctx);
             return symbol;
         } else { // 文本中间的空白节点
@@ -92,11 +98,15 @@ class Node {
     get token () {
         const ctx = this.context;
         
-        if (ctx instanceof TerminalNode) {
-            return ctx.symbol;
-        } else {
-            return this._getLeftToken();
+        if (!this._token) {
+            if (ctx instanceof TerminalNode) {
+                this._token = ctx.symbol;
+            } else {
+                this._token = this._getLeftToken();
+            }
         }
+        
+        return this._token;
     }
 }
 
