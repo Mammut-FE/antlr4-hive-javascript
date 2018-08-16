@@ -1,6 +1,6 @@
 {
   "name": "antlr4-hive-javascript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "antlr4 hive parser",
   "main": "lib/index.js",
   "repository": "git@github.com:Mammut-FE/antlr4-hive-javascript.git",
@@ -10,20 +10,11 @@
     "lib"
   ],
   "devDependencies": {
-    "@babel/core": "^7.0.0-rc.1",
-    "@babel/preset-env": "^7.0.0-rc.1",
-    "babel-loader": "8.0.0-beta.0",
-    "file-loader": "^1.1.11",
-    "gulp": "^3.9.1",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "gulp": "^3.9.1"
   },
   "scripts": {
     "build": "./build.sh",
-    "prepublish": "gulp",
-    "start": "webpack-dev-server --config ./example/webpack.config.js"
+    "prepublish": "gulp"
   },
   "dependencies": {
     "antlr4": "^4.7.1"

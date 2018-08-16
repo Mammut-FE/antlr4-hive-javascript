@@ -8,12 +8,7 @@ antlr4 hive parser - javascript
 
 ## Use
 
-> see [example](https://github.com/Mammut-FE/antlr4-hive-javascript/tree/master/example)
-
-```javascript
-cd example
-node index.js
-```
+> see [hive-parser](https://github.com/Mammut-FE/hive-parser)
 
 ## Antlr4
 
