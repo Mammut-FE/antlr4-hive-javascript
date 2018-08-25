@@ -67,3 +67,4 @@ typings/
 # Out
 lib
 example/dist
+src/.antlr

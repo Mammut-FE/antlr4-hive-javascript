@@ -869,7 +869,8 @@ from_alias_clause :
         this._input.LT(1).text.toUpperCase() !== "GROUP" &&
         this._input.LT(1).text.toUpperCase() !== "ORDER" &&
         this._input.LT(1).text.toUpperCase() !== "LIMIT" &&
-        this._input.LT(1).text.toUpperCase() !== "WITH"}?
+        this._input.LT(1).text.toUpperCase() !== "WITH" &&
+        this._input.LT(1).text.toUpperCase() !== "JOIN"}?
        T_AS? ident (T_OPEN_P L_ID (T_COMMA L_ID)* T_CLOSE_P)?
      ;
 
