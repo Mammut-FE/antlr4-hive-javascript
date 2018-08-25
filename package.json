@@ -1,6 +1,6 @@
 {
   "name": "antlr4-hive-javascript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "antlr4 hive parser",
   "main": "lib/index.js",
   "repository": "git@github.com:Mammut-FE/antlr4-hive-javascript.git",
